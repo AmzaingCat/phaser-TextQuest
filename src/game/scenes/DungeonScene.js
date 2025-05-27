@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { Player } from '../Player';
+import FogOfWar from '../FogOfWar';
 
 export class DungeonScene extends Phaser.Scene {
   constructor() {
@@ -19,6 +20,9 @@ export class DungeonScene extends Phaser.Scene {
 
     // create player instance
     this.player = new Player(this, 6, 5, wallLayer, 'player', this.tileSize)
+
+    this.fog = new FogOfWar(this, 100);
+    this.fog.update(this.player.x, this.player.y);
 
     this.physics.add.collider(this.player, wallLayer);
 

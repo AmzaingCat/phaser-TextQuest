@@ -60,6 +60,11 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
             duration: 100,
             onComplete: () => {
                 this.isMoving = false;
+
+                // Notify scene to update fog
+                if(this.scene.fog) {
+                    this.scene.fog.update(this.x, this.y);
+                }
             }
         });
     }
