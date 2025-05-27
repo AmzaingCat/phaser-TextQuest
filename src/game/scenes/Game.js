@@ -25,6 +25,6 @@ export class Game extends Scene
 
     changeScene ()
     {
-        this.scene.start('GameOver');
+        this.scene.start('DungeonScene');
     }
 }
