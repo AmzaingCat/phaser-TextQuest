@@ -1,18 +1,22 @@
 import Phaser from "phaser";
 
-export class Player extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, texture = 'player', tileSize = 32) {
+export class Player extends Phaser.Physics.Arcade.Sprite {
+    constructor(scene, x, y, collisionLayer, texture = 'player', tileSize = 32) {
         super(scene, x * tileSize + tileSize / 2, y * tileSize + tileSize / 2, texture);
 
         this.scene = scene;
         this.tileSize = tileSize;
         this.tileX = x;
         this.tileY = y;
+        this.collisionLayer = collisionLayer;
 
         this.isMoving = false;
 
         // add player sprite to the scene
         scene.add.existing(this);
+        scene.physics.add.existing(this);
+
+        this.setCollideWorldBounds(true);
 
         //enable keyboard input
         this.cursors = scene.input.keyboard.createCursorKeys();
@@ -33,8 +37,19 @@ export class Player extends Phaser.GameObjects.Sprite {
     }
 
     move(dx, dy) {
-        this.tileX += dx;
-        this.tileY += dy;
+        const newTileX = this.tileX + dx;
+        const newTileY = this.tileY + dy;
+
+        // check for collision tile at new position
+        const tile = this.collisionLayer.getTileAt(newTileX, newTileY);
+
+        if (tile && tile.properties.collides) {
+            // tile is collidable; do not move
+            return;
+        }
+
+        this.tileX = newTileX;
+        this.tileY = newTileY;
 
         this.isMoving = true;
 

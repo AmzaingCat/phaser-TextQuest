@@ -9,17 +9,22 @@ export class DungeonScene extends Phaser.Scene {
   create() {
     const map = this.make.tilemap({ key: 'map' });
     const tileset = map.addTilesetImage('dungeontiles', 'tiles');
-    map.createLayer('Ground', tileset, 0, 0);
+    const groundLayer = map.createLayer('Ground', tileset, 0, 0);
+    const wallLayer = map.createLayer('Wall', tileset);
+
+    wallLayer.setCollisionByProperty({ collides: true});
 
     // Set tile size
     this.tileSize = map.tileWidth;
 
     // create player instance
-    this.player = new Player(this, 5, 5, 'player', this.tileSize)
+    this.player = new Player(this, 6, 5, wallLayer, 'player', this.tileSize)
+
+    this.physics.add.collider(this.player, wallLayer);
 
     var cam = this.cameras.main;
 
-    cam.setBackgroundColor(0x000000);
+    //cam.setBackgroundColor(0x000000);
     cam.startFollow(this.player);
     cam.setZoom(3);
 

@@ -12,8 +12,12 @@ const config = {
     type: Phaser.AUTO,
     width: 1024,
     height: 768,
+    pixelArt: true,
     parent: 'game-container',
     backgroundColor: '#028af8',
+    physics: {
+        default: 'arcade'
+    },
     scene: [
         Boot,
         Preloader,
