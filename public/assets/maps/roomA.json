@@ -1,0 +1,281 @@
+{ "compressionlevel":-1,
+ "height":10,
+ "infinite":false,
+ "layers":[
+        {
+         "data":[8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+            8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+            8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+            8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+            8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+            8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+            8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+            8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+            8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+            8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+         "height":10,
+         "id":1,
+         "name":"Ground",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":10,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 2, 2, 2, 2, 2, 2, 0, 0,
+            0, 7, 0, 0, 0, 0, 0, 0, 9, 0,
+            0, 7, 0, 0, 0, 0, 0, 0, 9, 0,
+            0, 7, 0, 0, 0, 0, 0, 0, 9, 0,
+            0, 7, 0, 0, 0, 0, 0, 0, 9, 0,
+            0, 7, 0, 0, 0, 0, 0, 0, 9, 0,
+            0, 7, 0, 0, 0, 0, 0, 0, 9, 0,
+            0, 0, 14, 14, 14, 14, 0, 14, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         "height":10,
+         "id":2,
+         "name":"Wall",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":10,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":3,
+         "name":"DoorObject",
+         "objects":[
+                {
+                 "gid":17,
+                 "height":32,
+                 "id":2,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"entryX",
+                         "type":"int",
+                         "value":11
+                        }, 
+                        {
+                         "name":"entryY",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"targetScene",
+                         "type":"string",
+                         "value":"DungeonScene"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":192,
+                 "y":288
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 17, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         "height":10,
+         "id":5,
+         "name":"DoorLayer",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":10,
+         "x":0,
+         "y":0
+        }],
+ "nextlayerid":6,
+ "nextobjectid":3,
+ "orientation":"orthogonal",
+ "renderorder":"right-down",
+ "tiledversion":"1.11.2",
+ "tileheight":32,
+ "tilesets":[
+        {
+         "columns":6,
+         "firstgid":1,
+         "image":"..\/tilesets\/dungeon.png",
+         "imageheight":96,
+         "imagewidth":192,
+         "margin":0,
+         "name":"dungeontiles",
+         "spacing":0,
+         "tilecount":18,
+         "tileheight":32,
+         "tiles":[
+                {
+                 "id":0,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"string",
+                         "value":"true"
+                        }]
+                }, 
+                {
+                 "id":1,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"string",
+                         "value":"true"
+                        }]
+                }, 
+                {
+                 "id":2,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"string",
+                         "value":"true"
+                        }]
+                }, 
+                {
+                 "id":4,
+                 "properties":[
+                        {
+                         "name":"entryX",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"entryY",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"targetScene",
+                         "type":"string",
+                         "value":""
+                        }]
+                }, 
+                {
+                 "id":6,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"string",
+                         "value":"true"
+                        }]
+                }, 
+                {
+                 "id":8,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"string",
+                         "value":"true"
+                        }]
+                }, 
+                {
+                 "id":9,
+                 "properties":[
+                        {
+                         "name":"entryX",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"entryY",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"targetScene",
+                         "type":"string",
+                         "value":""
+                        }]
+                }, 
+                {
+                 "id":11,
+                 "properties":[
+                        {
+                         "name":"entryX",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"entryY",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"targetScene",
+                         "type":"string",
+                         "value":""
+                        }]
+                }, 
+                {
+                 "id":12,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"string",
+                         "value":"true"
+                        }]
+                }, 
+                {
+                 "id":13,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"string",
+                         "value":"true"
+                        }]
+                },
+            
+                {
+                 "id":14,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"string",
+                         "value":"true"
+                        }]
+                }, 
+                {
+                 "id":16,
+                 "properties":[
+                        {
+                         "name":"entryX",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"entryY",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"targetScene",
+                         "type":"string",
+                         "value":""
+                        }]
+                }],
+         "tilewidth":32
+        }],
+ "tilewidth":32,
+ "type":"map",
+ "version":"1.10",
+ "width":10
+}
