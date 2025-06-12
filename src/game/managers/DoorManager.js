@@ -1,5 +1,4 @@
 
-
 export default class DoorManager {
     constructor(scene, player, map, tilesetName) {
         this.scene = scene;
@@ -38,7 +37,7 @@ export default class DoorManager {
     }
 
     onOverlap(player, door) {
-        console.log(`Going to scene ${door.targetScene} at (${door.entryX}, ${door.entryY})`)
+        console.log(`Going to scene ${door.targetScene} at (${door.entryX}, ${door.entryY})`);
 
         if(door.isLocked) {
             const hasKey = player.inventory?.includes(door.requiredKey);

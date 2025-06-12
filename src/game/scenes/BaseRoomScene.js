@@ -1,8 +1,8 @@
 import Phaser from 'phaser';
 import { Player } from '../Player';
 import FogOfWar from '../FogOfWar';
-import DoorManager from '../DoorManager';
-import LootManager from '../LootManager';
+import DoorManager from '../managers/DoorManager';
+import LootManager from '../managers/LootManager';
 
 export class BaseRoomScene extends Phaser.Scene {
     constructor(key) {
