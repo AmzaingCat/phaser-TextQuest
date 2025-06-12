@@ -10,9 +10,9 @@ export default class DoorManager {
         const tileset = map.tilesets.find(ts => ts.name === tilesetName);
         const firstgid = tileset.firstgid;
 
-        const doorobjects = map.getObjectLayer("DoorObject")?.objects || [];
+        const doorObjects = map.getObjectLayer("DoorObject")?.objects || [];
 
-        doorobjects.forEach(obj => {
+        doorObjects.forEach(obj => {
             const frame = obj.gid ? obj.gid - firstgid : undefined;
 
             const door = obj.gid
