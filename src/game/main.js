@@ -4,6 +4,7 @@ import { GameOver } from './scenes/GameOver';
 import { MainMenu } from './scenes/MainMenu';
 import { DungeonScene } from './scenes/DungeonScene';
 import { RoomA } from './scenes/roomA';
+import { RoomB } from './scenes/roomB';
 import Phaser from 'phaser';
 import { Preloader } from './scenes/Preloader';
 
@@ -25,6 +26,7 @@ const config = {
         MainMenu,
         DungeonScene,
         RoomA,
+        RoomB,
         Game,
         GameOver
     ]

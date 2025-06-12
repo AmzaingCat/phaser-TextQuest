@@ -20,6 +20,8 @@
   <properties>
    <property name="entryX" type="int" value="0"/>
    <property name="entryY" type="int" value="0"/>
+   <property name="isLocked" type="bool" value="false"/>
+   <property name="requiredKey" value=""/>
    <property name="targetScene" value=""/>
   </properties>
  </tile>
@@ -37,6 +39,8 @@
   <properties>
    <property name="entryX" type="int" value="0"/>
    <property name="entryY" type="int" value="0"/>
+   <property name="isLocked" type="bool" value="false"/>
+   <property name="requiredKey" value=""/>
    <property name="targetScene" value=""/>
   </properties>
  </tile>
@@ -44,6 +48,8 @@
   <properties>
    <property name="entryX" type="int" value="0"/>
    <property name="entryY" type="int" value="0"/>
+   <property name="isLocked" type="bool" value="false"/>
+   <property name="requiredKey" value=""/>
    <property name="targetScene" value=""/>
   </properties>
  </tile>
@@ -66,6 +72,8 @@
   <properties>
    <property name="entryX" type="int" value="0"/>
    <property name="entryY" type="int" value="0"/>
+   <property name="isLocked" type="bool" value="false"/>
+   <property name="requiredKey" value=""/>
    <property name="targetScene" value=""/>
   </properties>
  </tile>

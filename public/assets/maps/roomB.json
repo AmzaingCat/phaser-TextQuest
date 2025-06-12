@@ -66,11 +66,6 @@
                          "value":10
                         }, 
                         {
-                         "name":"isLocked",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"targetScene",
                          "type":"string",
                          "value":"DungeonScene"
@@ -81,35 +76,6 @@
                  "width":32,
                  "x":192,
                  "y":288
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "draworder":"topdown",
-         "id":6,
-         "name":"Loot",
-         "objects":[
-                {
-                 "gid":19,
-                 "height":32,
-                 "id":3,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"itemId",
-                         "type":"string",
-                         "value":"gold_key"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":64,
-                 "y":96
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -138,8 +104,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":7,
- "nextobjectid":4,
+ "nextlayerid":6,
+ "nextobjectid":3,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.11.2",
@@ -359,16 +325,6 @@
          "spacing":0,
          "tilecount":18,
          "tileheight":32,
-         "tiles":[
-                {
-                 "id":0,
-                 "properties":[
-                        {
-                         "name":"itemId",
-                         "type":"string",
-                         "value":""
-                        }]
-                }],
          "tilewidth":32
         }],
  "tilewidth":32,

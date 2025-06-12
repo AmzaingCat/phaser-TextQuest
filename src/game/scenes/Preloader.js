@@ -41,8 +41,13 @@ export class Preloader extends Scene
             frameWidth: 32,
             frameHeight: 32,
         });
+        this.load.spritesheet('dungeonitems', 'tilesets/item.png', {
+            frameWidth: 32,
+            frameHeight: 32,
+        });
         this.load.tilemapTiledJSON('DungeonScene', 'maps/dungeon.json');
         this.load.tilemapTiledJSON('RoomA', 'maps/roomA.json');
+        this.load.tilemapTiledJSON('RoomB', 'maps/roomB.json');
     }
 
     create ()

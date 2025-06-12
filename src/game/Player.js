@@ -48,9 +48,21 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
             return;
         }
 
+        // check for locked door at new tile postion
+        const door = this.scene.doorManager?.doors.find(d => {
+            const doorTileX = Math.floor(d.x / this.tileSize);
+            const doorTileY = Math.floor((d.y - this.tileSize) / this. tileSize);
+            return doorTileX === newTileX && doorTileY === newTileY;
+        });
+
+        if (door?.isLocked && !this.inventory?.includes(door.requiredKey)) {
+            console.log(`Cannot move: Door is locked. Requires key ${door.requiredKey}`);
+            return;
+        }
+
+        // if everything is ok, proceed
         this.tileX = newTileX;
         this.tileY = newTileY;
-
         this.isMoving = true;
 
         this.scene.tweens.add({
