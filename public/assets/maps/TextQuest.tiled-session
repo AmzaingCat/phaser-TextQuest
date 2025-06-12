@@ -47,8 +47,8 @@
             "scale": 2,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 497.5,
-                "y": 319.75
+                "x": 468,
+                "y": 375.5
             }
         },
         "dungeon.json#dungeonitems": {
@@ -65,8 +65,8 @@
             "scale": 3,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 159.99999999999997,
-                "y": 160.16666666666669
+                "x": 189.99999999999997,
+                "y": 142.33333333333334
             }
         },
         "roomA.json#dungeonitems": {
@@ -74,7 +74,8 @@
             "scaleInEditor": 1
         },
         "roomA.json#dungeontiles": {
-            "scaleInDock": 1
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "roomB.json": {
             "expandedObjectLayers": [
@@ -84,14 +85,15 @@
             "selectedLayer": 2,
             "viewCenter": {
                 "x": 160.08071296451993,
-                "y": 159.9461913569867
+                "y": 160.08071296451993
             }
         },
         "roomB.json#dungeonitems": {
             "scaleInDock": 1
         },
         "roomB.json#dungeontiles": {
-            "scaleInDock": 1
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         }
     },
     "last.externalTilesetPath": "D:/MERN Projects/phaser-TextQuest/public/assets/tilesets",

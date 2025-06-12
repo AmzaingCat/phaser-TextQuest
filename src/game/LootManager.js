@@ -3,14 +3,14 @@ export default class LootManager {
     constructor(scene, player, map, tilesetName) {
         this.scene = scene;
         this.player = player;
-        this.map;
+        this.map = map;
 
         this.loot = [];
 
         const tileset = map.tilesets.find(ts => ts.name === tilesetName);
         const firstgid = tileset.firstgid;
 
-        const lootObjects = map.getObjectLayer("Loot")?.Objects || [];
+        const lootObjects = map.getObjectLayer("Loot")?.objects || [];
 
         lootObjects.forEach(obj => {
             const frame = obj.gid ? obj.gid - firstgid : undefined;
@@ -35,7 +35,7 @@ export default class LootManager {
     collectItem(player, item) {
         console.log(`Picked up ${item.itemId}`);
         player.inventory = player.inventory || [];
-        player.invetory.push(item.itemId);
+        player.inventory.push(item.itemId);
 
         item.destroy();
     }
