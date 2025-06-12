@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { Player } from '../Player';
 import FogOfWar from '../FogOfWar';
 import DoorManager from '../DoorManager';
+import LootManager from './LootManager';
 
 export class BaseRoomScene extends Phaser.Scene {
     constructor(key) {
@@ -24,6 +25,7 @@ export class BaseRoomScene extends Phaser.Scene {
 
         this.player = new Player(this, startX, startY, wallLayer, 'player', this.tileSize);
         this.doorManager = new DoorManager(this, this.player, map, 'dungeontiles');
+        this.lootManager = new LootManager(this, this.player, map, 'dungeonitems');
         this.fog = new FogOfWar(this, 100);
         this.fog.update(this.player.x, this.player.y);
 

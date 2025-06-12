@@ -10,6 +10,8 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
         this.tileY = y;
         this.collisionLayer = collisionLayer;
 
+        this.inventory = [];
+
         this.isMoving = false;
 
         // add player sprite to the scene
