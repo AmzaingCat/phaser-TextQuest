@@ -33,9 +33,9 @@ export default class LootManager {
     }
 
     collectItem(player, item) {
+        const playerManager = this.scene.game.playerManager;
         console.log(`Picked up ${item.itemId}`);
-        player.inventory = player.inventory || [];
-        player.inventory.push(item.itemId);
+        playerManager.addItem(item.itemId);
 
         item.destroy();
     }

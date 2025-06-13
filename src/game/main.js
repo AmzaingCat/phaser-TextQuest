@@ -2,6 +2,7 @@ import { Boot } from './scenes/Boot';
 import { Game } from './scenes/Game';
 import { GameOver } from './scenes/GameOver';
 import { MainMenu } from './scenes/MainMenu';
+import PlayerManager from './managers/PlayerManager';
 import { DungeonScene } from './scenes/DungeonScene';
 import { RoomA } from './scenes/roomA';
 import { RoomB } from './scenes/roomB';
@@ -33,8 +34,10 @@ const config = {
 };
 
 const StartGame = (parent) => {
+    const game = new Phaser.Game({ ...config, parent });
+    game.playerManager = new PlayerManager();
 
-    return new Phaser.Game({ ...config, parent });
+    return game;
 
 }
 

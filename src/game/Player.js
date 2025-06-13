@@ -10,8 +10,6 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
         this.tileY = y;
         this.collisionLayer = collisionLayer;
 
-        this.inventory = [];
-
         this.isMoving = false;
 
         // add player sprite to the scene
@@ -57,7 +55,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
             return doorTileX === newTileX && doorTileY === newTileY;
         });
 
-        if (door?.isLocked && !this.inventory?.includes(door.requiredKey)) {
+        if (door?.isLocked && !this.scene.game.playerManager.hasItem(door.requiredKey)) {
             console.log(`Cannot move: Door is locked. Requires key ${door.requiredKey}`);
             return;
         }

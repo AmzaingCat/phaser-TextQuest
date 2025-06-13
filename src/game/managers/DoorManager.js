@@ -39,14 +39,6 @@ export default class DoorManager {
     onOverlap(player, door) {
         console.log(`Going to scene ${door.targetScene} at (${door.entryX}, ${door.entryY})`);
 
-        if(door.isLocked) {
-            const hasKey = player.inventory?.includes(door.requiredKey);
-            if(!hasKey) {
-                console.log(`Door is locked. Requires key: ${door.requiredKey}`);
-                return;
-            }
-        }
-
         // teleport logic (same scene or different)
         if (door.targetScene && door.targetScene !== this.scene.scene.key) {
             this.scene.scene.start(door.targetScene, {
