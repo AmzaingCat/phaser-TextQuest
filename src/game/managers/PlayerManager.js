@@ -5,7 +5,9 @@ export default class PlayerManager {
     }
 
     addItem(item) {
-        this.inventory.push(item);
+        if(!this.inventory.includes(item)) {
+            this.inventory.push(item);
+        }
     }
 
     hasItem(itemName) {

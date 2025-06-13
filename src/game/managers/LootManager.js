@@ -6,6 +6,7 @@ export default class LootManager {
         this.map = map;
 
         this.loot = [];
+        this.playerManager = this.scene.game.playerManager;
 
         const tileset = map.tilesets.find(ts => ts.name === tilesetName);
         const firstgid = tileset.firstgid;
@@ -13,6 +14,18 @@ export default class LootManager {
         const lootObjects = map.getObjectLayer("Loot")?.objects || [];
 
         lootObjects.forEach(obj => {
+            // Get itemId from custom properties
+            let itemId = null;
+            if(obj.properties) {
+                obj.properties.forEach(prop => {
+                    if (prop.name === 'itemId') itemId = prop.value;
+                });
+            }
+            // Skip if already collected
+            if(itemId && this.playerManager.hasItem(itemId)) {
+                return;
+            }
+
             const frame = obj.gid ? obj.gid - firstgid : undefined;
 
             const item = obj.gid
@@ -33,9 +46,8 @@ export default class LootManager {
     }
 
     collectItem(player, item) {
-        const playerManager = this.scene.game.playerManager;
         console.log(`Picked up ${item.itemId}`);
-        playerManager.addItem(item.itemId);
+        this.playerManager.addItem(item.itemId);
 
         item.destroy();
     }
