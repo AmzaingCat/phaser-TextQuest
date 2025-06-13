@@ -104,6 +104,16 @@
                  "name":"",
                  "properties":[
                         {
+                         "name":"entryX",
+                         "type":"int",
+                         "value":6
+                        }, 
+                        {
+                         "name":"entryY",
+                         "type":"int",
+                         "value":7
+                        }, 
+                        {
                          "name":"isLocked",
                          "type":"bool",
                          "value":true

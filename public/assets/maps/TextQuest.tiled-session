@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "dungeon.json",
+    "activeFile": "roomB.json",
     "expandedProjectPaths": [
         "D:/MERN Projects/phaser-TextQuest/public/assets/tilesets",
         "."
@@ -59,8 +59,8 @@
         },
         "roomA.json": {
             "expandedObjectLayers": [
-                6,
-                3
+                3,
+                6
             ],
             "scale": 3,
             "selectedLayer": 2,
@@ -84,8 +84,8 @@
             "scale": 3.716875,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 160.08071296451993,
-                "y": 160.08071296451993
+                "x": 253.97679502270051,
+                "y": 197.47771985875232
             }
         },
         "roomB.json#dungeonitems": {
@@ -109,9 +109,9 @@
     "project": "TextQuest.tiled-project",
     "property.type": "string",
     "recentFiles": [
-        "roomB.json",
-        "roomA.json",
         "dungeon.json",
+        "roomA.json",
+        "roomB.json",
         "D:/MERN Projects/phaser-TextQuest/public/assets/tilesets/dungeonitems.tsx",
         "D:/MERN Projects/phaser-TextQuest/public/assets/tilesets/dungeontiles.tsx",
         "D:/Program Files/Tiled/examples/desert.tmx"
