@@ -50,17 +50,20 @@ export class BattleScene extends Phaser.Scene {
         // Setup UI
         this.createBattleUI();
         this.showMessage('A wild '+ this.enemy.name +' appears!');
+
+        const cam = this.cameras.main;
+        cam.setBackgroundColor(0x000000);
     }
 
     createBattleUI() {
         // Placeholder health display
-        this.playerHPText = this.add.text(20, 20, `${this.playerManager.name}: ${this.playerManager.hp} HP`, { fontSize: '16px', fill: '#fff' });
-        this.enemyHPText = this.add.text(300, 20, `${this.enemy.name}: ${this.enemy.hp} HP`, { fontSize: '16px', fill: '#fff' });
+        this.playerHPText = this.add.text(20, 20, `${this.playerManager.name}: ${this.playerManager.hp} HP`, { fontSize: '16px', fill: '#df7126' });
+        this.enemyHPText = this.add.text(300, 20, `${this.enemy.name}: ${this.enemy.hp} HP`, { fontSize: '16px', fill: '#df7126' });
 
         // Actions
         this.attackButton = this.add.text(20, 100, 'Attack', {
-            backgroundColor: '#000000',
-            color: '#ffffff',
+            backgroundColor: '#000',
+            color: '#df7126',
             padding: { x: 10, y: 5 }
         }).setInteractive().on('pointerdown', () => this.handlePlayerAttack());
     }
