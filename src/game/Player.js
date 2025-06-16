@@ -23,16 +23,16 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     }
 
     update() {
-        if(this.isMoving) return;
+        if (this.isMoving) return;
 
-        if(Phaser.Input.Keyboard.JustDown(this.cursors.left)) {
-            this.move(-1,0);
+        if (Phaser.Input.Keyboard.JustDown(this.cursors.left)) {
+            this.move(-1, 0);
         } else if (Phaser.Input.Keyboard.JustDown(this.cursors.right)) {
-            this.move(1,0);
+            this.move(1, 0);
         } else if (Phaser.Input.Keyboard.JustDown(this.cursors.up)) {
-            this.move(0,-1);
+            this.move(0, -1);
         } else if (Phaser.Input.Keyboard.JustDown(this.cursors.down)) {
-            this.move(0,1);
+            this.move(0, 1);
         }
     }
 
@@ -51,7 +51,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
         // check for locked door at new tile postion
         const door = this.scene.doorManager?.doors.find(d => {
             const doorTileX = Math.floor(d.x / this.tileSize);
-            const doorTileY = Math.floor((d.y - this.tileSize) / this. tileSize);
+            const doorTileY = Math.floor((d.y - this.tileSize) / this.tileSize);
             return doorTileX === newTileX && doorTileY === newTileY;
         });
 
@@ -74,8 +74,14 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
                 this.isMoving = false;
 
                 // Notify scene to update fog
-                if(this.scene.fog) {
+                if (this.scene.fog) {
                     this.scene.fog.update(this.x, this.y);
+                }
+                if (Phaser.Math.Between(1, 100) <= 50) { // 50% chance
+                    this.scene.scene.start('BattleScene', {
+                        player: { name: 'Hero', hp: 100 },
+                        enemy: { name: 'Goblin', hp: 30 }
+                    });
                 }
             }
         });

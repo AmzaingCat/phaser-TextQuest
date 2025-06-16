@@ -3,6 +3,7 @@ import { Game } from './scenes/Game';
 import { GameOver } from './scenes/GameOver';
 import { MainMenu } from './scenes/MainMenu';
 import PlayerManager from './managers/PlayerManager';
+import { BattleScene } from './scenes/BattleScene';
 import { DungeonScene } from './scenes/DungeonScene';
 import { RoomA } from './scenes/roomA';
 import { RoomB } from './scenes/roomB';
@@ -25,6 +26,7 @@ const config = {
         Boot,
         Preloader,
         MainMenu,
+        BattleScene,
         DungeonScene,
         RoomA,
         RoomB,
