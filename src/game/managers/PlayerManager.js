@@ -2,6 +2,8 @@
 export default class PlayerManager {
     constructor() {
         this.inventory = [];
+        this.hp = 100;
+        this.name = 'Hero';
     }
 
     addItem(item) {

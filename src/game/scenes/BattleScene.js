@@ -8,8 +8,10 @@ export class BattleScene extends Phaser.Scene {
 
     create(data) {
         // Load the player and enemy data
-        this.player = data.player;
+        this.playerManager = this.game.playerManager;
         this.enemy = data.enemy;
+        this.returnScene = data.returnScene;
+        this.returnPosition = data.returnPosition;
 
         // Battle UI state
         this.actionTaken = false;
@@ -19,14 +21,14 @@ export class BattleScene extends Phaser.Scene {
         this.fsm = new BattleFSM('start');
         this.fsm.addTransition('start', 'player-turn', () => true);
         this.fsm.addTransition('player-turn', 'win', () => this.enemy.hp <= 0);
-        this.fsm.addTransition('enemy-turn', 'lose', () => this.player.hp <= 0);
+        this.fsm.addTransition('enemy-turn', 'lose', () => this.playerManager.hp <= 0);
         this.fsm.addTransition('player-turn', 'enemy-turn', () => this.actionTaken);
         this.fsm.addTransition('enemy-turn', 'player-turn', () => this.enemyActionDone);
 
         // FSM onEnter callbacks
         this.fsm.setOnEnter('player-turn', () => {
             this.actionTaken = false;
-            this.showMessage(`${this.player.name}'s turn!`);
+            this.showMessage(`${this.playerManager.name}'s turn!`);
         });
 
         this.fsm.setOnEnter('enemy-turn', () => {
@@ -36,12 +38,12 @@ export class BattleScene extends Phaser.Scene {
         });
 
         this.fsm.setOnEnter('win', () => {
-            this.showMessage(`${this.player.name} defeated ${this.enemy.name}`);
-            this.time.delayedCall(2000, () => this.scene.start('DungeonScene'), [], this);
+            this.showMessage(`${this.playerManager.name} defeated ${this.enemy.name}`);
+            this.time.delayedCall(2000, () => this.endBattle(), [], this);
         });
 
         this.fsm.setOnEnter('lose', () => {
-            this.showMessage(`${this.player.name} was defeated...`);
+            this.showMessage(`${this.playerManager.name} was defeated...`);
             this.time.delayedCall(2000, () => this.scene.start('GameOver'), [], this);
         });
 
@@ -52,7 +54,7 @@ export class BattleScene extends Phaser.Scene {
 
     createBattleUI() {
         // Placeholder health display
-        this.playerHPText = this.add.text(20, 20, `${this.player.name}: ${this.player.hp} HP`, { fontSize: '16px', fill: '#fff' });
+        this.playerHPText = this.add.text(20, 20, `${this.playerManager.name}: ${this.playerManager.hp} HP`, { fontSize: '16px', fill: '#fff' });
         this.enemyHPText = this.add.text(300, 20, `${this.enemy.name}: ${this.enemy.hp} HP`, { fontSize: '16px', fill: '#fff' });
 
         // Actions
@@ -67,7 +69,7 @@ export class BattleScene extends Phaser.Scene {
         if (this.fsm.state !== 'player-turn' || this.actionTaken) return;
 
         this.enemy.hp -= 10;
-        this.showMessage(`${this.player.name} attacks!`);
+        this.showMessage(`${this.playerManager.name} attacks!`);
         this.updateUI();
         
         this.actionTaken = true;
@@ -76,15 +78,22 @@ export class BattleScene extends Phaser.Scene {
     handleEnemyTurn() {
         if(this.enemy.hp <= 0) return;
 
-        this.player.hp -= 50;
+        this.playerManager.hp -= 10;
         this.showMessage(`${this.enemy.name} hits back!`);
         this.updateUI();
 
         this.enemyActionDone= true;
     }
 
+    endBattle() {
+        this.scene.start(this.returnScene, {
+            startX: this.returnPosition.x,
+            startY: this.returnPosition.y
+        });
+    }
+
     updateUI() {
-        this.playerHPText.setText(`${this.player.name}: ${this.player.hp} HP`);
+        this.playerHPText.setText(`${this.playerManager.name}: ${this.playerManager.hp} HP`);
         this.enemyHPText.setText(`${this.enemy.name}: ${this.enemy.hp} HP`);
     }
 
