@@ -18,10 +18,10 @@ export class BattleScene extends Phaser.Scene {
         // Create FSM
         this.fsm = new BattleFSM('start');
         this.fsm.addTransition('start', 'player-turn', () => true);
-        this.fsm.addTransition('player-turn', 'enemy-turn', () => this.actionTaken);
-        this.fsm.addTransition('enemy-turn', 'player-turn', () => this.enemyActionDone);
         this.fsm.addTransition('player-turn', 'win', () => this.enemy.hp <= 0);
         this.fsm.addTransition('enemy-turn', 'lose', () => this.player.hp <= 0);
+        this.fsm.addTransition('player-turn', 'enemy-turn', () => this.actionTaken);
+        this.fsm.addTransition('enemy-turn', 'player-turn', () => this.enemyActionDone);
 
         // FSM onEnter callbacks
         this.fsm.setOnEnter('player-turn', () => {
@@ -37,7 +37,7 @@ export class BattleScene extends Phaser.Scene {
 
         this.fsm.setOnEnter('win', () => {
             this.showMessage(`${this.player.name} defeated ${this.enemy.name}`);
-            this.time.delayedCall(2000, () => this.scene.start('SceneStart'), [], this);
+            this.time.delayedCall(2000, () => this.scene.start('DungeonScene'), [], this);
         });
 
         this.fsm.setOnEnter('lose', () => {
@@ -69,13 +69,14 @@ export class BattleScene extends Phaser.Scene {
         this.enemy.hp -= 10;
         this.showMessage(`${this.player.name} attacks!`);
         this.updateUI();
+        
         this.actionTaken = true;
     }
 
     handleEnemyTurn() {
         if(this.enemy.hp <= 0) return;
 
-        this.player.hp -= 5;
+        this.player.hp -= 50;
         this.showMessage(`${this.enemy.name} hits back!`);
         this.updateUI();
 
