@@ -26,6 +26,18 @@ export class BattleScene extends Phaser.Scene {
         this.fsm.addTransition('enemy-turn', 'player-turn', () => this.enemyActionDone);
 
         // FSM onEnter callbacks
+        this.fsm.setOnEnter('win', () => {
+            this.showConsole(`${this.playerManager.name} defeated ${this.enemy.name}`);
+            this.showMessage(`${this.playerManager.name} defeated ${this.enemy.name}`);
+            this.time.delayedCall(2000, () => this.endBattle(), [], this);
+        });
+
+        this.fsm.setOnEnter('lose', () => {
+            this.showConsole(`${this.playerManager.name} was defeated...`);
+            this.showMessage(`${this.playerManager.name} was defeated...`);
+            this.time.delayedCall(2000, () => this.scene.start('GameOver'), [], this);
+        });
+
         this.fsm.setOnEnter('player-turn', () => {
             this.actionTaken = false;
             this.showConsole(`${this.playerManager.name}'s turn!`);
