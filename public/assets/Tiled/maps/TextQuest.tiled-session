@@ -44,11 +44,11 @@
             "expandedObjectLayers": [
                 4
             ],
-            "scale": 2,
-            "selectedLayer": 2,
+            "scale": 4,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 480,
-                "y": 319.75
+                "x": 583,
+                "y": 462
             }
         },
         "dungeon.json#dungeonitems": {
@@ -63,10 +63,10 @@
                 3
             ],
             "scale": 3,
-            "selectedLayer": 2,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 159.99999999999997,
-                "y": 160.16666666666669
+                "x": 172,
+                "y": 203.66666666666663
             }
         },
         "roomA.json#dungeonitems": {
@@ -84,8 +84,8 @@
             "scale": 3.716875,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 160.08071296451993,
-                "y": 159.9461913569867
+                "x": 246.17454178577432,
+                "y": 208.2394484614091
             }
         },
         "roomB.json#dungeonitems": {
@@ -96,9 +96,11 @@
             "scaleInEditor": 1
         }
     },
-    "last.externalTilesetPath": "D:/MERN Projects/phaser-TextQuest/public/assets/tilesets",
+    "last.exportedFilePath": "D:/MERN Projects/phaser-TextQuest/public/assets/maps",
+    "last.externalTilesetPath": "D:/MERN Projects/phaser-TextQuest/public/assets/Tiled/tilesets",
     "last.imagePath": "D:/MERN Projects/phaser-TextQuest/public/assets/tilesets",
     "map.height": 10,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
     "map.lastUsedFormat": "json",
     "map.width": 10,
     "openFiles": [
