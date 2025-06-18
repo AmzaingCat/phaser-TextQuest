@@ -27,12 +27,18 @@ export class BattleScene extends Phaser.Scene {
 
         // FSM onEnter callbacks
         this.fsm.setOnEnter('win', () => {
+            this.enemySprite.setTint(0x999999); // gray out
+            this.enemySprite.setAlpha(0.5);     // fade
+
             this.showConsole(`${this.playerManager.name} defeated ${this.enemy.name}`);
             this.showMessage(`${this.playerManager.name} defeated ${this.enemy.name}`);
             this.time.delayedCall(2000, () => this.endBattle(), [], this);
         });
 
         this.fsm.setOnEnter('lose', () => {
+            this.playerSprite.setTint(0x999999); // gray out
+            this.playerSprite.setAlpha(0.5);     // fade
+            
             this.showConsole(`${this.playerManager.name} was defeated...`);
             this.showMessage(`${this.playerManager.name} was defeated...`);
             this.time.delayedCall(2000, () => this.scene.start('GameOver'), [], this);
@@ -59,6 +65,8 @@ export class BattleScene extends Phaser.Scene {
 
         const cam = this.cameras.main;
         cam.setBackgroundColor(0x000000);
+        
+        this.time.delayedCall(500, () => this.fsm.update(), [], this);
     }
 
     createBattleUI() {
@@ -118,7 +126,10 @@ export class BattleScene extends Phaser.Scene {
             x: sprite.x - 5,
             yoyo: true,
             duration: 50,
-            repeat: 2
+            repeat: 3,
+            onComplete: ()=> {
+                this.time.delayedCall(500, () => this.fsm.update(), [], this);
+            }
         });
     }
 
@@ -140,9 +151,5 @@ export class BattleScene extends Phaser.Scene {
         }
 
         this.messageText.setText(this.messages.join('\n'));
-    }
-
-    update() {
-        this.fsm.update();
     }
 }
