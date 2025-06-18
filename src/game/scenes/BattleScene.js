@@ -84,6 +84,14 @@ export class BattleScene extends Phaser.Scene {
     handlePlayerAttack() {
         if (this.fsm.state !== 'player-turn' || this.actionTaken) return;
 
+        this.tweens.add({
+            targets: this.enemySprite,
+            x: this.enemySprite.x - 5,
+            yoyo: true,
+            duration: 50,
+            repeat: 2
+        });
+
         this.enemy.hp -= 10;
         this.showConsole(`${this.playerManager.name} attacks!`);
         this.showMessage(`${this.playerManager.name} attacks!`);
@@ -94,6 +102,14 @@ export class BattleScene extends Phaser.Scene {
 
     handleEnemyTurn() {
         if(this.enemy.hp <= 0) return;
+
+        this.tweens.add({
+            targets: this.playerSprite,
+            x: this.playerSprite.x - 5,
+            yoyo: true,
+            duration: 50,
+            repeat: 2
+        });
 
         this.playerManager.hp -= 5;
         this.showConsole(`${this.enemy.name} hits back!`);
