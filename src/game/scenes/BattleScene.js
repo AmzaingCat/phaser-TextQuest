@@ -53,6 +53,7 @@ export class BattleScene extends Phaser.Scene {
 
         // Setup UI
         this.createBattleUI();
+        this.createSprite();
         this.showConsole('A wild '+ this.enemy.name +' appears!');
         this.showMessage('A wild '+ this.enemy.name +' appears!');
 
@@ -65,7 +66,7 @@ export class BattleScene extends Phaser.Scene {
         this.playerHPText = this.add.text(20, 20, `${this.playerManager.name}: ${this.playerManager.hp} HP`, { fontSize: '16px', fill: '#df7126' });
         this.enemyHPText = this.add.text(300, 20, `${this.enemy.name}: ${this.enemy.hp} HP`, { fontSize: '16px', fill: '#df7126' });
         this.messages = [];
-        this.messageText = this.add.text(20, 200, '',  { fontSize: '16px', fill: '#df7126', wordWrap: { width: 500 } });      
+        this.messageText = this.add.text(700, 550, '',  { fontSize: '16px', fill: '#df7126', wordWrap: { width: 500 } });      
 
         // Actions
         this.attackButton = this.add.text(20, 100, 'Attack', {
@@ -73,6 +74,11 @@ export class BattleScene extends Phaser.Scene {
             color: '#df7126',
             padding: { x: 10, y: 5 }
         }).setInteractive().on('pointerdown', () => this.handlePlayerAttack());
+    }
+
+    createSprite() {
+        this.playerSprite = this.add.sprite(200, 500, 'player').setScale(2).setOrigin(0.5, 1);
+        this.enemySprite = this.add.sprite(500, 300, 'monster').setScale(2).setOrigin(0.5, 1);
     }
 
     handlePlayerAttack() {

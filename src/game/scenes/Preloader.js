@@ -36,6 +36,8 @@ export class Preloader extends Scene
         this.load.image('star', 'star.png');
 
         this.load.image('player', 'sprites/player.png');
+        this.load.image('monster', 'sprites/monster.png');
+
         this.load.image('tiles', 'tilesets/dungeon.png');
         this.load.spritesheet('dungeontiles', 'tilesets/dungeon.png', {
             frameWidth: 32,
