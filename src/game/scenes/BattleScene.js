@@ -51,18 +51,6 @@ export class BattleScene extends Phaser.Scene {
             this.time.delayedCall(1000, () => this.handleEnemyTurn(), [], this);
         });
 
-        this.fsm.setOnEnter('win', () => {
-            this.showConsole(`${this.playerManager.name} defeated ${this.enemy.name}`);
-            this.showMessage(`${this.playerManager.name} defeated ${this.enemy.name}`);
-            this.time.delayedCall(2000, () => this.endBattle(), [], this);
-        });
-
-        this.fsm.setOnEnter('lose', () => {
-            this.showConsole(`${this.playerManager.name} was defeated...`);
-            this.showMessage(`${this.playerManager.name} was defeated...`);
-            this.time.delayedCall(2000, () => this.scene.start('GameOver'), [], this);
-        });
-
         // Setup UI
         this.createBattleUI();
         this.createSprite();
@@ -96,14 +84,7 @@ export class BattleScene extends Phaser.Scene {
     handlePlayerAttack() {
         if (this.fsm.state !== 'player-turn' || this.actionTaken) return;
 
-        this.tweens.add({
-            targets: this.enemySprite,
-            x: this.enemySprite.x - 5,
-            yoyo: true,
-            duration: 50,
-            repeat: 2
-        });
-
+        this.jitterEffect(this.enemySprite);
         this.enemy.hp -= 10;
         this.showConsole(`${this.playerManager.name} attacks!`);
         this.showMessage(`${this.playerManager.name} attacks!`);
@@ -115,14 +96,7 @@ export class BattleScene extends Phaser.Scene {
     handleEnemyTurn() {
         if(this.enemy.hp <= 0) return;
 
-        this.tweens.add({
-            targets: this.playerSprite,
-            x: this.playerSprite.x - 5,
-            yoyo: true,
-            duration: 50,
-            repeat: 2
-        });
-
+        this.jitterEffect(this.playerSprite);
         this.playerManager.hp -= 5;
         this.showConsole(`${this.enemy.name} hits back!`);
         this.showMessage(`${this.enemy.name} hits back!`);
@@ -135,6 +109,16 @@ export class BattleScene extends Phaser.Scene {
         this.scene.start(this.returnScene, {
             startX: this.returnPosition.x,
             startY: this.returnPosition.y
+        });
+    }
+
+    jitterEffect(sprite) {
+        this.tweens.add({
+            targets: sprite,
+            x: sprite.x - 5,
+            yoyo: true,
+            duration: 50,
+            repeat: 2
         });
     }
 
