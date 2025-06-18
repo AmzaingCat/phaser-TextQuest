@@ -5,8 +5,8 @@
     },
     "activeFile": "dungeon.json",
     "expandedProjectPaths": [
-        "D:/MERN Projects/phaser-TextQuest/public/assets/tilesets",
-        "."
+        ".",
+        "D:/MERN Projects/phaser-TextQuest/public/assets/tilesets"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -59,8 +59,8 @@
         },
         "roomA.json": {
             "expandedObjectLayers": [
-                3,
-                6
+                6,
+                3
             ],
             "scale": 3,
             "selectedLayer": 2,
