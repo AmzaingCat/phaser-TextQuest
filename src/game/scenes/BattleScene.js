@@ -71,13 +71,18 @@ export class BattleScene extends Phaser.Scene {
 
     createBattleUI() {
         // Placeholder health display
-        this.playerHPText = this.add.text(20, 20, `${this.playerManager.name}: ${this.playerManager.hp} HP`, { fontSize: '16px', fill: '#df7126' });
-        this.enemyHPText = this.add.text(300, 20, `${this.enemy.name}: ${this.enemy.hp} HP`, { fontSize: '16px', fill: '#df7126' });
+        this.playerHPText = this.add.text(20, 20, '', { fontSize: '16px', fill: '#df7126' });
+        this.enemyHPText = this.add.text(300, 20, '', { fontSize: '16px', fill: '#df7126' });
+        this.potionCountText = this.add.text(300, 550, '', { fontSize: '16px', fill: '#df7126' })
         this.messages = [];
         this.messageText = this.add.text(700, 550, '',  { fontSize: '16px', fill: '#df7126', wordWrap: { width: 500 } });      
 
+        //update UI immediately
+        this.updateUI();
+        this.updatePotionCountUI();
+
         // Actions
-        this.attackButton = this.add.text(20, 100, 'Attack', {
+        this.attackButton = this.add.text(20, 550, 'Attack', {
             backgroundColor: '#000',
             color: '#df7126',
             padding: { x: 10, y: 5 }
@@ -136,6 +141,11 @@ export class BattleScene extends Phaser.Scene {
     updateUI() {
         this.playerHPText.setText(`${this.playerManager.name}: ${this.playerManager.hp} HP`);
         this.enemyHPText.setText(`${this.enemy.name}: ${this.enemy.hp} HP`);
+    }
+
+    updatePotionCountUI() {
+        const count = this.game.playerManager.getItemCount('health_potion');
+        this.potionCountText.setText(`Potions: ${count}`);
     }
 
     showConsole(text) {

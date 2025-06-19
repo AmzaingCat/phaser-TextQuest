@@ -3,9 +3,10 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "dungeon.json",
+    "activeFile": "roomA.json",
     "expandedProjectPaths": [
         ".",
+        "D:/MERN Projects/phaser-TextQuest/public/assets/Tiled/tilesets",
         "D:/MERN Projects/phaser-TextQuest/public/assets/tilesets"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -18,6 +19,14 @@
             "scaleInDock": 1
         },
         "#dungeontiles": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "D:/MERN Projects/phaser-TextQuest/public/assets/Tiled/tilesets/dungeonitems.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "D:/MERN Projects/phaser-TextQuest/public/assets/Tiled/tilesets/dungeontiles.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
@@ -42,13 +51,14 @@
         },
         "dungeon.json": {
             "expandedObjectLayers": [
-                4
+                4,
+                6
             ],
-            "scale": 4,
+            "scale": 3,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 583,
-                "y": 462
+                "x": 255.99999999999997,
+                "y": 331.16666666666663
             }
         },
         "dungeon.json#dungeonitems": {
@@ -65,8 +75,8 @@
             "scale": 3,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 172,
-                "y": 203.66666666666663
+                "x": 149.99999999999997,
+                "y": 190.83333333333331
             }
         },
         "roomA.json#dungeonitems": {
@@ -79,13 +89,14 @@
         },
         "roomB.json": {
             "expandedObjectLayers": [
+                6,
                 3
             ],
             "scale": 3.716875,
-            "selectedLayer": 2,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 246.17454178577432,
-                "y": 208.2394484614091
+                "x": 183.21842946023202,
+                "y": 162.90566672271734
             }
         },
         "roomB.json#dungeonitems": {
@@ -106,14 +117,18 @@
     "openFiles": [
         "dungeon.json",
         "roomA.json",
-        "roomB.json"
+        "roomB.json",
+        "D:/MERN Projects/phaser-TextQuest/public/assets/Tiled/tilesets/dungeontiles.tsx",
+        "D:/MERN Projects/phaser-TextQuest/public/assets/Tiled/tilesets/dungeonitems.tsx"
     ],
     "project": "TextQuest.tiled-project",
     "property.type": "string",
     "recentFiles": [
+        "dungeon.json",
+        "D:/MERN Projects/phaser-TextQuest/public/assets/Tiled/tilesets/dungeonitems.tsx",
+        "D:/MERN Projects/phaser-TextQuest/public/assets/Tiled/tilesets/dungeontiles.tsx",
         "roomB.json",
         "roomA.json",
-        "dungeon.json",
         "D:/MERN Projects/phaser-TextQuest/public/assets/tilesets/dungeonitems.tsx",
         "D:/MERN Projects/phaser-TextQuest/public/assets/tilesets/dungeontiles.tsx",
         "D:/Program Files/Tiled/examples/desert.tmx"

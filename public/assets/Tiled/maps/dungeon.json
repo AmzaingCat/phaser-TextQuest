@@ -165,7 +165,35 @@
          "draworder":"topdown",
          "id":6,
          "name":"Loot",
-         "objects":[],
+         "objects":[
+                {
+                 "gid":20,
+                 "height":32,
+                 "id":20,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"healAmount",
+                         "type":"int",
+                         "value":20
+                        }, 
+                        {
+                         "name":"itemId",
+                         "type":"string",
+                         "value":"health_potion"
+                        }, 
+                        {
+                         "name":"uniqueId",
+                         "type":"string",
+                         "value":"dungeon_potion_1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":192,
+                 "y":320
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -204,7 +232,7 @@
          "y":0
         }],
  "nextlayerid":7,
- "nextobjectid":20,
+ "nextobjectid":21,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.11.2",

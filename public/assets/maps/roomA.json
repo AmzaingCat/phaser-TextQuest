@@ -103,6 +103,11 @@
                          "name":"itemId",
                          "type":"string",
                          "value":"gold_key"
+                        }, 
+                        {
+                         "name":"uniqueId",
+                         "type":"string",
+                         "value":"roomA_gold_key"
                         }],
                  "rotation":0,
                  "type":"",
@@ -139,7 +144,7 @@
          "y":0
         }],
  "nextlayerid":7,
- "nextobjectid":7,
+ "nextobjectid":4,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.11.2",
@@ -365,6 +370,30 @@
                  "properties":[
                         {
                          "name":"itemId",
+                         "type":"string",
+                         "value":""
+                        }, 
+                        {
+                         "name":"uniqueId",
+                         "type":"string",
+                         "value":""
+                        }]
+                }, 
+                {
+                 "id":1,
+                 "properties":[
+                        {
+                         "name":"healAmount",
+                         "type":"int",
+                         "value":20
+                        }, 
+                        {
+                         "name":"itemId",
+                         "type":"string",
+                         "value":"health_potion"
+                        }, 
+                        {
+                         "name":"uniqueId",
                          "type":"string",
                          "value":""
                         }]

@@ -1,25 +1,42 @@
 
 export default class PlayerManager {
     constructor() {
-        this.inventory = [];
+        this.inventory = {};
+        this.collectedItems = new Set();
         this.hp = 100;
         this.name = 'Hero';
     }
 
-    addItem(item) {
-        if(!this.inventory.includes(item)) {
-            this.inventory.push(item);
+    addItem(itemId) {
+        if(!this.inventory[itemId]) {
+            this.inventory[itemId] = 1;
+        } else {
+            this.inventory[itemId]++;
         }
     }
 
-    hasItem(itemName) {
-        return this.inventory.includes(itemName);
+    removeItem(itemId) {
+        if (this.inventory[itemId]) {
+            this.inventory[itemId]--;
+            if (this.inventory[itemId] <= 0) {
+                delete this.inventory[itemId];
+            }
+        }
     }
 
-    removeItem(itemName) {
-        const index = this.inventory.indexOf(itemName);
-        if (index !== -1) {
-            this.inventory.splice(index, 1);
-        }
+    hasItem(itemId) {
+        return !!this.inventory[itemId];
+    }
+
+    getItemCount(itemId) {
+        return this.inventory[itemId] || 0;
+    }
+
+    addCollectedItem(uniqueId) {
+        this.collectedItems.add(uniqueId);
+    }
+
+    hasCollected(uniqueId) {
+        return this.collectedItems.has(uniqueId);
     }
 }

@@ -15,14 +15,14 @@ export default class LootManager {
 
         lootObjects.forEach(obj => {
             // Get itemId from custom properties
-            let itemId = null;
+            let uniqueId = null;
             if(obj.properties) {
                 obj.properties.forEach(prop => {
-                    if (prop.name === 'itemId') itemId = prop.value;
+                    if (prop.name === 'uniqueId') uniqueId = prop.value;
                 });
             }
             // Skip if already collected
-            if(itemId && this.playerManager.hasItem(itemId)) {
+            if(this.playerManager.hasCollected(uniqueId)) {
                 return;
             }
 
@@ -47,6 +47,7 @@ export default class LootManager {
 
     collectItem(player, item) {
         console.log(`Picked up ${item.itemId}`);
+        this.playerManager.addCollectedItem(item.uniqueId);
         this.playerManager.addItem(item.itemId);
 
         item.destroy();

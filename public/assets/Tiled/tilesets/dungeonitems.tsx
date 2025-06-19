@@ -4,6 +4,14 @@
  <tile id="0">
   <properties>
    <property name="itemId" value=""/>
+   <property name="uniqueId" value=""/>
+  </properties>
+ </tile>
+ <tile id="1">
+  <properties>
+   <property name="healAmount" type="int" value="20"/>
+   <property name="itemId" value="health_potion"/>
+   <property name="uniqueId" value=""/>
   </properties>
  </tile>
 </tileset>

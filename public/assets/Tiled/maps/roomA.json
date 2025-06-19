@@ -1,4 +1,12 @@
 { "compressionlevel":-1,
+ "editorsettings":
+    {
+     "export":
+        {
+         "format":"json",
+         "target":"..\/..\/maps\/roomA.json"
+        }
+    },
  "height":10,
  "infinite":false,
  "layers":[
@@ -103,6 +111,11 @@
                          "name":"itemId",
                          "type":"string",
                          "value":"gold_key"
+                        }, 
+                        {
+                         "name":"uniqueId",
+                         "type":"string",
+                         "value":"roomA_gold_key"
                         }],
                  "rotation":0,
                  "type":"",
