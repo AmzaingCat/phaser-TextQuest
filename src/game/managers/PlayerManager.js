@@ -7,7 +7,7 @@ export default class PlayerManager {
         this.name = 'Hero';
     }
 
-    addItem(itemId) {
+    addInventory(itemId) {
         if(!this.inventory[itemId]) {
             this.inventory[itemId] = 1;
         } else {
@@ -15,7 +15,7 @@ export default class PlayerManager {
         }
     }
 
-    removeItem(itemId) {
+    removeInventory(itemId) {
         if (this.inventory[itemId]) {
             this.inventory[itemId]--;
             if (this.inventory[itemId] <= 0) {

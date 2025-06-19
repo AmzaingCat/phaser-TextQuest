@@ -48,7 +48,7 @@ export default class LootManager {
     collectItem(player, item) {
         console.log(`Picked up ${item.itemId}`);
         this.playerManager.addCollectedItem(item.uniqueId);
-        this.playerManager.addItem(item.itemId);
+        this.playerManager.addInventory(item.itemId);
 
         item.destroy();
     }
