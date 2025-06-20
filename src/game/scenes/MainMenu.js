@@ -21,7 +21,11 @@ export class MainMenu extends Scene
         }).setOrigin(0.5).setInteractive();
 
         playButton.on('pointerdown', () => {
-            this.scene.start('DungeonScene');
+            this.game.playerManager.reset();
+            this.scene.start('DungeonScene', {
+                startX: 6,
+                startY: 5
+            });
         });
 
         const cam = this.cameras.main;

@@ -8,6 +8,12 @@ export default class PlayerManager {
         this.name = 'Hero';
     }
 
+    reset() {
+        this.inventory = {};
+        this.collectedItems = new Set();
+        this.hp = this.maxHp;
+    }
+
     addInventory(itemId) {
         if(!this.inventory[itemId]) {
             this.inventory[itemId] = 1;
