@@ -73,7 +73,7 @@ export class BattleScene extends Phaser.Scene {
         // Placeholder health display
         this.playerHPText = this.add.text(20, 20, '', { fontSize: '16px', fill: '#df7126' });
         this.enemyHPText = this.add.text(300, 20, '', { fontSize: '16px', fill: '#df7126' });
-        this.potionCountText = this.add.text(300, 550, '', { fontSize: '16px', fill: '#df7126' })
+        this.potionCountText = this.add.text(300, 600, '', { fontSize: '16px', fill: '#df7126' })
         this.messages = [];
         this.messageText = this.add.text(700, 550, '',  { fontSize: '16px', fill: '#df7126', wordWrap: { width: 500 } });      
 
@@ -87,6 +87,12 @@ export class BattleScene extends Phaser.Scene {
             color: '#df7126',
             padding: { x: 10, y: 5 }
         }).setInteractive().on('pointerdown', () => this.handlePlayerAttack());
+
+        this.healButton = this.add.text(300, 550, 'Heal', {
+            backgroundColor: '#000',
+            color: '#df7126',
+            padding: { x: 10, y: 5 }
+        }).setInteractive().on('pointerdown', () => this.handlePlayerHeal());
     }
 
     createSprite() {
@@ -104,6 +110,23 @@ export class BattleScene extends Phaser.Scene {
         
         this.actionTaken = true;
         this.jitterEffect(this.enemySprite);
+    }
+
+        handlePlayerHeal() {
+        if (this.fsm.state !== 'player-turn' || this.actionTaken) return;
+
+        if (this.playerManager.getItemCount('health_potion') > 0) {
+            this.playerManager.hp = Math.min(this.playerManager.hp + 20, 100);
+            this.playerManager.removeInventory('health_potion');
+            this.updateUI();
+            this.updatePotionCountUI();
+            this.showMessage(`${this.playerManager.name} heals!`);
+
+            this.actionTaken = true;
+            this.jumpEffect(this.playerSprite);
+        } else {
+            this.showMessage('No more Potions!');
+        }
     }
 
     handleEnemyTurn() {
@@ -138,6 +161,19 @@ export class BattleScene extends Phaser.Scene {
         });
     }
 
+    jumpEffect(sprite) {
+        this.tweens.add({
+            targets: sprite,
+            y: '-=10',
+            yoyo: true,
+            duration: 120,
+            repeat: 1,
+            onComplete: () => {
+                this.time.delayedCall(500, () => this.fsm.update(), [], this);
+            }
+        });
+    }
+
     updateUI() {
         this.playerHPText.setText(`${this.playerManager.name}: ${this.playerManager.hp} HP`);
         this.enemyHPText.setText(`${this.enemy.name}: ${this.enemy.hp} HP`);
@@ -145,7 +181,7 @@ export class BattleScene extends Phaser.Scene {
 
     updatePotionCountUI() {
         const count = this.game.playerManager.getItemCount('health_potion');
-        this.potionCountText.setText(`Potions: ${count}`);
+        this.potionCountText.setText(`Health Potions: ${count}`);
     }
 
     showConsole(text) {
