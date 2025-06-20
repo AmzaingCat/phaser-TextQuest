@@ -77,7 +77,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
                 if (this.scene.fog) {
                     this.scene.fog.update(this.x, this.y);
                 }
-                if (Phaser.Math.Between(1, 100) <= 50) { // 50% chance
+                if (Phaser.Math.Between(1, 100) <= 10) { // 10% chance
                     this.scene.scene.start('BattleScene', {
                         enemy: { name: 'Goblin', hp: 30 },
                         returnScene: this.scene,

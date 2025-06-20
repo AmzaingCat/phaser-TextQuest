@@ -34,7 +34,7 @@ export class BaseRoomScene extends Phaser.Scene {
         const cam = this.cameras.main;
         cam.setBackgroundColor(0x000000);
         cam.startFollow(this.player);
-        cam.setZoom(3);
+        cam.setZoom(2);
     }
 
     update() {

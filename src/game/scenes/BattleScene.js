@@ -138,7 +138,7 @@ export class BattleScene extends Phaser.Scene {
     handleEnemyTurn() {
         if(this.enemy.hp <= 0) return;
 
-        this.playerManager.hp -= 5;
+        this.playerManager.hp -= 20;
         this.showConsole(`${this.enemy.name} hits back!`);
         this.showMessage(`${this.enemy.name} hits back!`);
         this.updateUI();
