@@ -116,14 +116,20 @@ export class BattleScene extends Phaser.Scene {
         if (this.fsm.state !== 'player-turn' || this.actionTaken) return;
 
         if (this.playerManager.getItemCount('health_potion') > 0) {
-            this.playerManager.hp = Math.min(this.playerManager.hp + 20, 100);
-            this.playerManager.removeInventory('health_potion');
-            this.updateUI();
-            this.updatePotionCountUI();
-            this.showMessage(`${this.playerManager.name} heals!`);
+            if (this.playerManager.hp == this.playerManager.maxHp) {
+                this.showMessage(`${this.playerManager.name} is already max health!`);
 
-            this.actionTaken = true;
-            this.jumpEffect(this.playerSprite);
+            } else {
+                this.playerManager.hp = Math.min(this.playerManager.hp + 20, this.playerManager.maxHp);
+                this.playerManager.removeInventory('health_potion');
+                this.updateUI();
+                this.updatePotionCountUI();
+                this.showMessage(`${this.playerManager.name} heals!`);
+
+                this.actionTaken = true;
+                this.jumpEffect(this.playerSprite);
+            }
+            
         } else {
             this.showMessage('No more Potions!');
         }

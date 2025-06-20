@@ -5,8 +5,8 @@
     },
     "activeFile": "roomA.json",
     "expandedProjectPaths": [
-        ".",
         "D:/MERN Projects/phaser-TextQuest/public/assets/Tiled/tilesets",
+        ".",
         "D:/MERN Projects/phaser-TextQuest/public/assets/tilesets"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -51,14 +51,14 @@
         },
         "dungeon.json": {
             "expandedObjectLayers": [
-                4,
-                6
+                6,
+                4
             ],
             "scale": 3,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 255.99999999999997,
-                "y": 331.16666666666663
+                "x": 479.99999999999994,
+                "y": 319.8333333333333
             }
         },
         "dungeon.json#dungeonitems": {
@@ -69,14 +69,14 @@
         },
         "roomA.json": {
             "expandedObjectLayers": [
-                6,
-                3
+                3,
+                6
             ],
             "scale": 3,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 149.99999999999997,
-                "y": 190.83333333333331
+                "x": 159.99999999999997,
+                "y": 160.16666666666663
             }
         },
         "roomA.json#dungeonitems": {
@@ -89,14 +89,14 @@
         },
         "roomB.json": {
             "expandedObjectLayers": [
-                6,
-                3
+                3,
+                6
             ],
-            "scale": 3.716875,
+            "scale": 4,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 183.21842946023202,
-                "y": 162.90566672271734
+                "x": 160,
+                "y": 160.125
             }
         },
         "roomB.json#dungeonitems": {

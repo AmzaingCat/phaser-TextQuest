@@ -3,7 +3,8 @@ export default class PlayerManager {
     constructor() {
         this.inventory = {};
         this.collectedItems = new Set();
-        this.hp = 100;
+        this.maxHp = 100;
+        this.hp  = this.maxHp;
         this.name = 'Hero';
     }
 
