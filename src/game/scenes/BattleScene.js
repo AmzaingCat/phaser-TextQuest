@@ -128,7 +128,7 @@ export class BattleScene extends Phaser.Scene {
     jitterEffect(sprite) {
         this.tweens.add({
             targets: sprite,
-            x: sprite.x - 5,
+            x: '-=5',
             yoyo: true,
             duration: 50,
             repeat: 3,
