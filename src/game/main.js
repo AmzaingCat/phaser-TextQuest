@@ -7,6 +7,7 @@ import { BattleScene } from './scenes/BattleScene';
 import { DungeonScene } from './scenes/DungeonScene';
 import { RoomA } from './scenes/roomA';
 import { RoomB } from './scenes/roomB';
+import { WinScreen } from './scenes/WinScreen';
 import Phaser from 'phaser';
 import { Preloader } from './scenes/Preloader';
 
@@ -31,7 +32,8 @@ const config = {
         RoomA,
         RoomB,
         Game,
-        GameOver
+        GameOver,
+        WinScreen
     ]
 };
 
