@@ -148,6 +148,22 @@
                  "height":32,
                  "id":18,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"isLocked",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"requiredKey",
+                         "type":"string",
+                         "value":"silver_key"
+                        }, 
+                        {
+                         "name":"targetScene",
+                         "type":"string",
+                         "value":"WinScreen"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,

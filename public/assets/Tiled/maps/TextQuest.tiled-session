@@ -55,10 +55,10 @@
                 4
             ],
             "scale": 3,
-            "selectedLayer": 3,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 479.99999999999994,
-                "y": 319.8333333333333
+                "x": 394,
+                "y": 398.83333333333326
             }
         },
         "dungeon.json#dungeonitems": {
@@ -75,8 +75,8 @@
             "scale": 3,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 159.99999999999997,
-                "y": 160.16666666666663
+                "x": 149.99999999999997,
+                "y": 190.83333333333331
             }
         },
         "roomA.json#dungeonitems": {
@@ -95,8 +95,8 @@
             "scale": 4,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 160,
-                "y": 160.125
+                "x": 165.25,
+                "y": 151.375
             }
         },
         "roomB.json#dungeonitems": {
