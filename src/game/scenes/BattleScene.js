@@ -97,25 +97,25 @@ export class BattleScene extends Phaser.Scene {
     handlePlayerAttack() {
         if (this.fsm.state !== 'player-turn' || this.actionTaken) return;
 
-        this.jitterEffect(this.enemySprite);
         this.enemy.hp -= 10;
         this.showConsole(`${this.playerManager.name} attacks!`);
         this.showMessage(`${this.playerManager.name} attacks!`);
         this.updateUI();
         
         this.actionTaken = true;
+        this.jitterEffect(this.enemySprite);
     }
 
     handleEnemyTurn() {
         if(this.enemy.hp <= 0) return;
 
-        this.jitterEffect(this.playerSprite);
         this.playerManager.hp -= 5;
         this.showConsole(`${this.enemy.name} hits back!`);
         this.showMessage(`${this.enemy.name} hits back!`);
         this.updateUI();
 
         this.enemyActionDone= true;
+        this.jitterEffect(this.playerSprite);
     }
 
     endBattle() {
